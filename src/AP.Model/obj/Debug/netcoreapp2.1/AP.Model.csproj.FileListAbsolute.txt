@@ -1,0 +1,12 @@
+C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.deps.json
+C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.dll
+C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.pdb
+C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Data.Acess.dll
+C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Data.Acess.pdb
+C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.csprojAssemblyReference.cache
+C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.csproj.CoreCompileInputs.cache
+C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.AssemblyInfoInputs.cache
+C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.AssemblyInfo.cs
+C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.csproj.CopyComplete
+C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.dll
+C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.pdb

@@ -1,0 +1,9 @@
+C:\Developer\AtividadePratica\src\AP.Data.Acess\bin\Debug\netcoreapp2.1\AP.Data.Acess.deps.json
+C:\Developer\AtividadePratica\src\AP.Data.Acess\bin\Debug\netcoreapp2.1\AP.Data.Acess.dll
+C:\Developer\AtividadePratica\src\AP.Data.Acess\obj\Debug\netcoreapp2.1\AP.Data.Acess.csprojAssemblyReference.cache
+C:\Developer\AtividadePratica\src\AP.Data.Acess\obj\Debug\netcoreapp2.1\AP.Data.Acess.csproj.CoreCompileInputs.cache
+C:\Developer\AtividadePratica\src\AP.Data.Acess\obj\Debug\netcoreapp2.1\AP.Data.Acess.AssemblyInfoInputs.cache
+C:\Developer\AtividadePratica\src\AP.Data.Acess\obj\Debug\netcoreapp2.1\AP.Data.Acess.AssemblyInfo.cs
+C:\Developer\AtividadePratica\src\AP.Data.Acess\bin\Debug\netcoreapp2.1\AP.Data.Acess.pdb
+C:\Developer\AtividadePratica\src\AP.Data.Acess\obj\Debug\netcoreapp2.1\AP.Data.Acess.dll
+C:\Developer\AtividadePratica\src\AP.Data.Acess\obj\Debug\netcoreapp2.1\AP.Data.Acess.pdb

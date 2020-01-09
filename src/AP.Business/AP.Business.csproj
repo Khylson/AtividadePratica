@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AP.Business.Contract\AP.Business.Contract.csproj" />
+    <ProjectReference Include="..\AP.Data.Acess\AP.Data.Acess.csproj" />
+    <ProjectReference Include="..\AP.Model\AP.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Business\" />
+  </ItemGroup>
+
+</Project>
