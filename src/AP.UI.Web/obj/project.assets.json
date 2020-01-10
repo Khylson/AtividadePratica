@@ -4672,6 +4672,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AP.Model": "1.0.0",
           "EntityFramework": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.6"
         },
@@ -4685,9 +4686,6 @@
       "AP.Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "AP.Data.Acess": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/AP.Model.dll": {}
         },
@@ -12861,6 +12859,7 @@
     ".NETCoreApp,Version=v2.1": [
       "AP.Business >= 1.0.0",
       "AP.Business.Contract >= 1.0.0",
+      "AP.Data.Acess >= 1.0.0",
       "AP.Model >= 1.0.0",
       "FontAwesome >= 4.7.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
@@ -12905,6 +12904,9 @@
             },
             "C:\\Developer\\AtividadePratica\\src\\AP.Business\\AP.Business.csproj": {
               "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Business\\AP.Business.csproj"
+            },
+            "C:\\Developer\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj": {
+              "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj"
             },
             "C:\\Developer\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj": {
               "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj"
@@ -12972,7 +12974,7 @@
     {
       "code": "NU1107",
       "level": "Error",
-      "message": "Version conflict detected for Microsoft.EntityFrameworkCore. Install/reference Microsoft.EntityFrameworkCore 2.2.6 directly to project AP.UI.Web to resolve this issue. \r\n AP.UI.Web -> AP.Business.Contract -> AP.Data.Acess -> Microsoft.EntityFrameworkCore.SqlServer 2.2.6 -> Microsoft.EntityFrameworkCore.Relational 2.2.6 -> Microsoft.EntityFrameworkCore (>= 2.2.6) \r\n AP.UI.Web -> Microsoft.AspNetCore.App 2.1.1 -> Microsoft.EntityFrameworkCore (>= 2.1.1 && < 2.2.0).",
+      "message": "Version conflict detected for Microsoft.EntityFrameworkCore. Install/reference Microsoft.EntityFrameworkCore 2.2.6 directly to project AP.UI.Web to resolve this issue. \r\n AP.UI.Web -> AP.Data.Acess -> Microsoft.EntityFrameworkCore.SqlServer 2.2.6 -> Microsoft.EntityFrameworkCore.Relational 2.2.6 -> Microsoft.EntityFrameworkCore (>= 2.2.6) \r\n AP.UI.Web -> Microsoft.AspNetCore.App 2.1.1 -> Microsoft.EntityFrameworkCore (>= 2.1.1 && < 2.2.0).",
       "libraryId": "Microsoft.EntityFrameworkCore",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"

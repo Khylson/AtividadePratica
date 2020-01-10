@@ -920,6 +920,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AP.Model": "1.0.0",
           "EntityFramework": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.6"
         },
@@ -933,9 +934,6 @@
       "AP.Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "AP.Data.Acess": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/AP.Model.dll": {}
         },

@@ -41,3 +41,5 @@ C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.cs
 C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.dll
 C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.pdb
 C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\Razor\Views\Autor\Forms.g.cshtml.cs
+C:\Devolper\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.dll
+C:\Devolper\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.pdb

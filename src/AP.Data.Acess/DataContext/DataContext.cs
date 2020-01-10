@@ -1,15 +1,21 @@
-﻿using System;
+﻿using AP.Model.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Text;
 
-namespace Data.Acess.DataContext
+namespace AP.Data.Acess.DataContext
 {
     public class DataContext : DbContext
     {
-        public DataContext()
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
+            Database.OpenConnection();
         }
+
+        public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Autor> Autores { get; set; }
+        public DbSet<Editor> Editores { get; set; }
+        public DbSet<Emprestimo> Emprestimos { get; set; }
     }
 }

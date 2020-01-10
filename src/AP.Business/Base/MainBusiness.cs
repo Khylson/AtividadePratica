@@ -1,42 +1,58 @@
-﻿using Data.Acess.Repositories;
+﻿using AP.Data.Acess.DataContext;
+using Data.Acess.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
 namespace AP.Business.Base
 {
-    public class MainBusiness<T> : IRepository<T> where T : class
+    public class MainBusiness<TModel> : IRepository<TModel> where TModel : class
     {
+        
+        protected readonly DataContext dbCtx;
+
+        public MainBusiness(DataContext dbContext)
+        {
+            dbCtx = dbContext;
+        }
+
         #region CRUD BUSINESS BASE
-        public void Alterar(T entity)
+
+        public IEnumerable<TModel> Listar()
         {
-            throw new NotImplementedException();
+            return dbCtx.Set<TModel>().AsEnumerable();
         }
 
-        public T Consultar(long id)
+        public TModel Incluir(TModel entity)
         {
-            throw new NotImplementedException();
+            dbCtx.Set<TModel>().Add(entity);
+            dbCtx.SaveChanges();
+            return entity;
         }
 
-        public void Excluir(T entity)
+        public TModel Consultar(long id)
         {
-            throw new NotImplementedException();
+            return dbCtx.Set<TModel>().Find(id);
         }
 
-        public void Incluir(T entity)
+        public void Alterar(TModel entity)
         {
-            throw new NotImplementedException();
+            dbCtx.Entry(entity).State = EntityState.Modified;
+            dbCtx.SaveChanges();
         }
 
-        public List<T> Listar()
+        public void Excluir(TModel entity)
         {
-            throw new NotImplementedException();
+            dbCtx.Set<TModel>().Remove(entity);
+            dbCtx.SaveChanges();
         }
 
-        public List<T> Pesquisar(Expression<Func<T, bool>> where)
+        public IEnumerable<TModel> Pesquisar(Expression<Func<TModel, bool>> elemento)
         {
-            throw new NotImplementedException();
+            return dbCtx.Set<TModel>().Where(elemento).AsEnumerable();
         }
 
         #endregion

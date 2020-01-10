@@ -511,6 +511,7 @@
       },
       "AP.Data.Acess/1.0.0": {
         "dependencies": {
+          "AP.Model": "1.0.0",
           "EntityFramework": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.6"
         },
@@ -519,9 +520,6 @@
         }
       },
       "AP.Model/1.0.0": {
-        "dependencies": {
-          "AP.Data.Acess": "1.0.0"
-        },
         "runtime": {
           "AP.Model.dll": {}
         }

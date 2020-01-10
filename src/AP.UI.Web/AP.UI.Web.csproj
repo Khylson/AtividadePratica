@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AP.Business.Contract\AP.Business.Contract.csproj" />
     <ProjectReference Include="..\AP.Business\AP.Business.csproj" />
+    <ProjectReference Include="..\AP.Data.Acess\AP.Data.Acess.csproj" />
     <ProjectReference Include="..\AP.Model\AP.Model.csproj" />
   </ItemGroup>
 
