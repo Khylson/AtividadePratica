@@ -6,13 +6,12 @@ namespace Data.Acess.Repositories
 {
     public interface IRepository <TModel> where TModel : class
     {
-        List<TModel> Listar();
-        void Incluir(TModel entity);
+        IEnumerable<TModel> Listar();
+        TModel Incluir(TModel entity);
+        TModel Consultar(long id);
         void Alterar(TModel entity);
         void Excluir(TModel entity);
-        TModel Consultar(long id);
-       // TModel Pesquisar(long id);
-        List<TModel> Pesquisar(Expression<Func<TModel, bool>> where);
+        IEnumerable<TModel> Pesquisar(Expression<Func<TModel, bool>> elemeto);
 
     }
 }

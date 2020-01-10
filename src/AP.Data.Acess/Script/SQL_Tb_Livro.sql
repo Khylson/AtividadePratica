@@ -1,13 +1,14 @@
-create table Livro 
-(
-  LivroId int identity (1,1) primary key NOT NULL,
-  Titulo varchar(50) NOT NULL,
-  ISBN varchar(20) NOT NULL,
-  Valor money NOT NULL,
-  Quantidade int NOT NULL,
-  Atatus varchar (20) NOT NULL,
-  fk_AutorId int  NOT NULL,
-  fk_EditoraId int  NULL,
-  constantints foreign key(fk_AutorId) references   Autor(AutorId),
-  constantints foreign key(fk_EditoraId) references Editora(EditoraId)
+
+CREATE TABLE [dbo].[LIVRO] (
+    [LIVROID]    BIGINT         NOT NULL,
+    [LITULO]     NVARCHAR (255) NOT NULL,
+    [ISBN]       NVARCHAR (20)  NOT NULL,
+    [QUANTIDADE] INT            NOT NULL,
+    [STATUS]     VARCHAR (20)   NOT NULL,
+    [AUTORID]    BIGINT         NOT NULL,
+    [EDITORAID]  BIGINT         NOT NULL,
+    PRIMARY KEY CLUSTERED ([LIVROID] ASC),
+    CONSTRAINT [FK_AUTORID] FOREIGN KEY ([AUTORID]) REFERENCES [dbo].[AUTOR] ([AUTORID]),
+    CONSTRAINT [FK_EDITORID] FOREIGN KEY ([EDITORAID]) REFERENCES [dbo].[EDITORA] ([EDITORAID])
 );
+

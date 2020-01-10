@@ -1,0 +1,14 @@
+
+CREATE TABLE [dbo].[ALUNO] (
+    [ALUNOID]   BIGINT         IDENTITY (1, 1) NOT NULL,
+    [NOME]      NVARCHAR (20)  NOT NULL,
+    [SOBRENOME] NVARCHAR (20)  NOT NULL,
+    [SEXO]      CHAR (1)       NOT NULL,
+    [RA]        NUMERIC (5, 1) NOT NULL,
+	[CPF]       VARCHAR (15) NULL,
+    [EMAIL]     VARCHAR (2079) NULL,
+    [TELEFONE]  VARCHAR (15)   NULL,
+    PRIMARY KEY CLUSTERED ([ALUNOID] ASC),
+    CHECK ([SEXO]='F' OR [SEXO]='M')
+);
+
