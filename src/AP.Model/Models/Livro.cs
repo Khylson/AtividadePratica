@@ -19,7 +19,7 @@ namespace AP.Model.Models
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("ISBN: ")]
-        public string Nome { get; set; }
+        public string ISBN { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Quantidade: ")]
@@ -33,10 +33,12 @@ namespace AP.Model.Models
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Autor: ")]
         public int AutorId { get; set; }
+        public Autor Autores { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Editora: ")]
         public int EditoraId { get; set; }
+        public Editora Editoras { get; set; }
 
 
 

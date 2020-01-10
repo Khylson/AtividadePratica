@@ -15,7 +15,7 @@ namespace AP.Data.Acess.DataContext
 
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Autor> Autores { get; set; }
-        public DbSet<Editor> Editores { get; set; }
+        public DbSet<Editora> Editoras { get; set; }
         public DbSet<Emprestimo> Emprestimos { get; set; }
     }
 }

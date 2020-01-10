@@ -20,11 +20,4 @@
     <ProjectReference Include="..\AP.Model\AP.Model.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Emprestímo\" />
-    <Folder Include="Views\Livro\" />
-    <Folder Include="Views\Editor\" />
-    <Folder Include="Views\Usuário\" />
-  </ItemGroup>
-
 </Project>

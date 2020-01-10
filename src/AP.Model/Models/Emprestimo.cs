@@ -22,16 +22,19 @@ namespace AP.Model.Models
         [DisplayName("Data Devolução: "), DataType(DataType.Date)]
         public DateTime DataDevolucao { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Valor da Multa: ")]
         public decimal ValorMulta { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Livro: ")]
         public int LivroId { get; set; }
+        public Livro Livros { get; set; }
+
+        public List<Livro> LivroListItens { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Aluno: ")]
         public int AlunoId { get; set; }
+        public Aluno Alunos { get; set; }
     }
 }

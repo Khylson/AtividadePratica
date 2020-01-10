@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data.Acess.Repositories
 {
-    public class EntityFramework<TModel> : IRepository<TModel> where TModel : class
+    public class Repository<TModel> : IRepository<TModel> where TModel : class
     {
 
         protected readonly DataContext Ctx;
 
-        public EntityFramework(DataContext dbContext)
+        public Repository(DataContext dbContext)
         {
             Ctx = dbContext;
         }

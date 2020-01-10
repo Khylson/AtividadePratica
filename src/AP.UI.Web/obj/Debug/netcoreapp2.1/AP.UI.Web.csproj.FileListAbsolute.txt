@@ -44,3 +44,8 @@ C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.Vi
 C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.csproj.CopyComplete
 C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.dll
 C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\AP.UI.Web.pdb
+C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\Razor\Views\Biblioteca\Index.g.cshtml.cs
+C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\Razor\Views\Editor\Forms.g.cshtml.cs
+C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\Razor\Views\Emprestímo\Forms.g.cshtml.cs
+C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Forms.g.cshtml.cs
+C:\Developer\AtividadePratica\src\AP.UI.Web\obj\Debug\netcoreapp2.1\Razor\Views\Aluno\Forms.g.cshtml.cs

@@ -8,7 +8,7 @@ using System.Text;
 namespace AP.Model.Models
 {
     [Table("EDITOR")]
-    public class Editor
+    public class Editora
     {
         [Key]
         public int EditorId { get; set; }

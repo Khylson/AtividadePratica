@@ -9,8 +9,4 @@
     <ProjectReference Include="..\AP.Model\AP.Model.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>
