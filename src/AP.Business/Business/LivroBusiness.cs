@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AP.Business.Business
 {
-    public class LivroBusiness : MainBusiness<Livro>, ILivro
+    public class LivroBusiness : MainBusiness<Livro>, ILivroBusiness
     {
         public LivroBusiness(DataContext dbContext) : base(dbContext)
         {

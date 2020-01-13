@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AP.Model.Models.Aluno>
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h2>Lista</h2>
+
+<div class="container">
+    @Html.ActionLink("Novo Aluno", "Incluir", "Aluno", new { }, new { @class = "btn btn-sm btn-primary pull-right" })
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">RA</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr style="color:white">
+                        <td>@item.AlunoId</td>
+                        <td>@item.Nome</td>
+                        <td>@item.Sobrenome</td>
+                        <td>@item.RA</td>
+                        <td>@item.Sexo</td>
+                        <td>@item.Email</td>
+                        <td>@item.Telefone</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">
+                        <p>Sem Registros</p>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

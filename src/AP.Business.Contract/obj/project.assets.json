@@ -3545,23 +3545,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ezequiel.muxito\\.nuget\\packages\\": {},
+    "C:\\Users\\Ezekiel Muxito\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Developer\\AtividadePratica\\src\\AP.Business.Contract\\AP.Business.Contract.csproj",
+      "projectUniqueName": "C:\\Devolper\\AtividadePratica\\src\\AP.Business.Contract\\AP.Business.Contract.csproj",
       "projectName": "AP.Business.Contract",
-      "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Business.Contract\\AP.Business.Contract.csproj",
-      "packagesPath": "C:\\Users\\ezequiel.muxito\\.nuget\\packages\\",
-      "outputPath": "C:\\Developer\\AtividadePratica\\src\\AP.Business.Contract\\obj\\",
+      "projectPath": "C:\\Devolper\\AtividadePratica\\src\\AP.Business.Contract\\AP.Business.Contract.csproj",
+      "packagesPath": "C:\\Users\\Ezekiel Muxito\\.nuget\\packages\\",
+      "outputPath": "C:\\Devolper\\AtividadePratica\\src\\AP.Business.Contract\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ezequiel.muxito\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ezekiel Muxito\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3574,11 +3574,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Developer\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj": {
-              "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj"
+            "C:\\Devolper\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj": {
+              "projectPath": "C:\\Devolper\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj"
             },
-            "C:\\Developer\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj": {
-              "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj"
+            "C:\\Devolper\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj": {
+              "projectPath": "C:\\Devolper\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj"
             }
           }
         }

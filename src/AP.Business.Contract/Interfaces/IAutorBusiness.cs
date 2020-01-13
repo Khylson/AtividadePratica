@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AP.Business.Contract.Interfaces.Base
 {
-    public interface IAutor : IBase<Autor>
+    public interface IAutorBusiness : IBase<Autor>
     {
 
     }

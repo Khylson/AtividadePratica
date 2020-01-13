@@ -3673,23 +3673,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ezequiel.muxito\\.nuget\\packages\\": {},
+    "C:\\Users\\Ezekiel Muxito\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Developer\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj",
+      "projectUniqueName": "C:\\Devolper\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj",
       "projectName": "AP.Data.Acess",
-      "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj",
-      "packagesPath": "C:\\Users\\ezequiel.muxito\\.nuget\\packages\\",
-      "outputPath": "C:\\Developer\\AtividadePratica\\src\\AP.Data.Acess\\obj\\",
+      "projectPath": "C:\\Devolper\\AtividadePratica\\src\\AP.Data.Acess\\AP.Data.Acess.csproj",
+      "packagesPath": "C:\\Users\\Ezekiel Muxito\\.nuget\\packages\\",
+      "outputPath": "C:\\Devolper\\AtividadePratica\\src\\AP.Data.Acess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ezequiel.muxito\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ezekiel Muxito\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3702,8 +3702,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Developer\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj": {
-              "projectPath": "C:\\Developer\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj"
+            "C:\\Devolper\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj": {
+              "projectPath": "C:\\Devolper\\AtividadePratica\\src\\AP.Model\\AP.Model.csproj"
             }
           }
         }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AP.Business.Contract.Interfaces
 {
-    public interface IEditora : IBase <Editora>
+    public interface IEditoraBusiness : IBase <Editora>
     {
     }
 }

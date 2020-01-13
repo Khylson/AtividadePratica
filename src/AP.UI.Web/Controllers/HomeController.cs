@@ -14,7 +14,10 @@ namespace AP.UI.Web.Controllers
         {
             return View();
         }
-
+        public IActionResult CarregarPage()
+        {
+            return View("PageBiblioteca");
+        }
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

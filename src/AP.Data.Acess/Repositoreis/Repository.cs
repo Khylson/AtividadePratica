@@ -25,7 +25,7 @@ namespace Data.Acess.Repositories
               return Ctx.Set<TModel>().AsEnumerable();
         }
 
-        public TModel Incluir(TModel entity)
+        public TModel Adicionar(TModel entity)
         {
             Ctx.Set<TModel>().Add(entity);
             Ctx.SaveChanges();

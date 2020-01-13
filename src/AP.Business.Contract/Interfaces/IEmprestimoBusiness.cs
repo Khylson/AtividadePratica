@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AP.Business.Contract.Interfaces
 {
-    public interface ILivro : IBase <Livro>
+    public interface IEmprestimoBusiness : IBase <Emprestimo>
     {
     }
 }

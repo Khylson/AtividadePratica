@@ -26,7 +26,7 @@ namespace AP.Business.Base
             return dbCtx.Set<TModel>().AsEnumerable();
         }
 
-        public TModel Incluir(TModel entity)
+        public TModel Adicionar(TModel entity)
         {
             dbCtx.Set<TModel>().Add(entity);
             dbCtx.SaveChanges();
