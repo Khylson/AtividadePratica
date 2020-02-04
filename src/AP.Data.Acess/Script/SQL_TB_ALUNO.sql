@@ -1,14 +1,19 @@
 
 CREATE TABLE [dbo].[ALUNO] (
-    [ALUNOID]   BIGINT         IDENTITY (1, 1) NOT NULL,
+    [ALUNOID]   INT            IDENTITY (1, 1) NOT NULL,
     [NOME]      NVARCHAR (20)  NOT NULL,
     [SOBRENOME] NVARCHAR (20)  NOT NULL,
-    [SEXO]      CHAR (1)       NOT NULL,
-    [RA]        NUMERIC (5, 1) NOT NULL,
-	[CPF]       VARCHAR (15) NULL,
-    [EMAIL]     VARCHAR (2079) NULL,
-    [TELEFONE]  VARCHAR (15)   NULL,
+    [SEXO]      CHAR	 (1)   NOT NULL,
+    [RA]        VARCHAR  (10)  NOT NULL,
+	[CPF]       VARCHAR  (15)  NULL,
+    [EMAIL]     VARCHAR  (255) NULL,
+    [TELEFONE]  VARCHAR  (15)  NULL,
     PRIMARY KEY CLUSTERED ([ALUNOID] ASC),
     CHECK ([SEXO]='F' OR [SEXO]='M')
 );
 
+INSERT INTO ALUNO ([NOME],[SOBRENOME],[SEXO],[RA],[CPF],[EMAIL],[TELEFONE]) 
+VALUES ('Ezekiel','Muxito','M','0089997','023.007.366-89','ezekielmuxito@tecm.co.ao','11 95190-9333')
+
+INSERT INTO ALUNO ([NOME],[SOBRENOME],[SEXO],[RA],[CPF],[EMAIL],[TELEFONE]) 
+VALUES ('Helda','Muxito','F','0098709','037.007.366-07','heldamuxito@gmail.com','11 95298-7760')

@@ -6,12 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using AP.UI.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AP.Data.Acess.DataContext;
+using AP.Business.Contract.Base;
+using AP.Business.Contract.Interfaces.Base;
+using AP.Business.Business;
+using AP.Business.Contract.Interfaces;
 
 namespace AP.UI.Web
 {
@@ -34,13 +37,25 @@ namespace AP.UI.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<Context>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DevConnection")));
             services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<Context>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //services.AddScoped<IAutorBusiness>();
+            //services.AddSingleton<IAutorBusiness, AutorBusiness>();
+
+            services.AddTransient<IAutorBusiness, AutorBusiness>();
+            services.AddTransient<IAlunoBusiness, AlunoBusiness>();
+            services.AddTransient<ILivroBusiness, LivroBusiness>();
+            services.AddTransient<IEditoraBusiness, EditoraBusiness>();
+            services.AddTransient<IEmprestimoBusiness, EmprestimoBusiness>();
+
+            //// String de conexão 
+            //services.AddDbContext<Context>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

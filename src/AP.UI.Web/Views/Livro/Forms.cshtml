@@ -1,7 +1,103 @@
-﻿
+﻿@model AP.Model.Models.Livro
 @{
-    ViewData["Title"] = "Forms";
+    ViewData["Title"] = "Cadastro de Livro";
 }
 
-<h2>Forms</h2>
 
+<p></p>
+<h2>Cdastro de Livros</h2>
+
+<form id="formCadastroLivro" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group-prepend">
+                <label for="Titulo">Titúlo:</label>
+                <input required="required" type="text" class="form-control" id="Titulo" name="Titulo" placeholder="Ex.: Meu Sonho" maxlength="255">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ISBN">ISBN:</label>
+                <input required="required" type="text" class="form-control" id="ISBN" name="ISBN" placeholder="Ex.: 00-10-0101-4" maxlength="13">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Quantidade">Quantidade:</label>
+                <input required="required" type="number" class="form-control" id="Quantidade" name="Quantidade" placeholder="Ex.: 600" maxlength="60">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Status">Status:</label>
+                <select required="required" id="Status" class="form-control" name="Status">
+                    <option value="0">- Selecione -</option>
+                    <option value="1">Disponível</option>
+                    <option value="2">Emprestado</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Editora">Editora:</label>
+                <select required="required" id="Editora" class="form-control" name="Editora">
+                    <option value="">- Selecione -</option>
+                    <option value="Kutanga">Kutanga</option>
+                    @*<option value="@Model.EditoraId">@Model.EditorsListItem</option>*@
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Autor">Autor:</label>
+                <select required="required" id="Autor" class="form-control" name="Autor">
+                    <option value="">- Selecione -</option>
+                    <option value="Ezekiel">Ezekiel</option>
+                    @*<option value="@Model.AutorId">@Model.AutorsListItem</option>*@
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="pull-right">
+                @Html.ActionLink("Voltar", "Carregar", "Aluno", new { }, new { @class = "btn btn-sm btn-danger" })
+                <button type="submit" onClick="btnIncluir($(this))" class="btn btn-sm btn-success">Salvar</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript">
+
+    function btnIncluir() {
+        $('#formCadastroLivro').submit(function (e) {
+           e.preventDefault();
+
+            $.ajax({
+                url: '@Url.Action("Incluir", "Livro")',
+                method: "POST",
+                data: {
+                    "Titulo": $(this).find("#Titulo").val(),
+                    "ISBN": $(this).find("#ISBN").val(),
+                    "Quantidade": $(this).find("#Quantidade").val(),
+                    "Status": $(this).find("#Status").val(),
+                    "Editora": $(this).find("#Editora").val(),
+                    "Autor": $(this).find("#Autor").val(),
+                },
+                error:
+                    function (r) {
+                        if (r)
+                            $.Notification.notify('error', 'top center', 'Falha', 'Ocoreru um erro.');
+                    },
+                success:
+                    function (r) {
+                        $.Notification.notify('success', 'top center', 'Sucesso', 'Salvo com sucesso.');
+                    }
+            });
+       })
+    }
+</script>

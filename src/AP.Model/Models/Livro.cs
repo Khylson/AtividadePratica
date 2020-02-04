@@ -27,7 +27,7 @@ namespace AP.Model.Models
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Status: ")]
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         
         [Required(ErrorMessage = "Campo obrigatório")]
@@ -39,6 +39,9 @@ namespace AP.Model.Models
         [DisplayName("Editora: ")]
         public int EditoraId { get; set; }
         public Editora Editoras { get; set; }
+
+        public IEnumerable<Autor> AutorsListItem { get; set; } 
+        public IEnumerable<Editora> EditorsListItem { get; set; }
 
 
 

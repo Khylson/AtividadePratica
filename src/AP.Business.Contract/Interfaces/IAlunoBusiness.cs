@@ -8,7 +8,6 @@ namespace AP.Business.Contract.Interfaces
 {
     public interface IAlunoBusiness : IBase <Aluno>
     {
-        Aluno Incluir(Aluno aluno);
-        IEnumerable<Aluno> ObterTodos();
+
     }
 }

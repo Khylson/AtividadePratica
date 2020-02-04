@@ -11,9 +11,9 @@ namespace Data.Acess.Repositories
     public class Repository<TModel> : IRepository<TModel> where TModel : class
     {
 
-        protected readonly DataContext Ctx;
+        protected readonly Context Ctx;
 
-        public Repository(DataContext dbContext)
+        public Repository(Context dbContext)
         {
             Ctx = dbContext;
         }
@@ -25,14 +25,14 @@ namespace Data.Acess.Repositories
               return Ctx.Set<TModel>().AsEnumerable();
         }
 
-        public TModel Adicionar(TModel entity)
+        public TModel Incluir(TModel entity)
         {
             Ctx.Set<TModel>().Add(entity);
             Ctx.SaveChanges();
             return entity;
         }
 
-        public TModel Consultar(long id)
+        public TModel Consultar(int id)
         {
             return Ctx.Set<TModel>().Find(id);
         }

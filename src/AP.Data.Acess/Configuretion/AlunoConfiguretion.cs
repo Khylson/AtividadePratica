@@ -20,7 +20,7 @@ namespace AP.Data.Acess.Configuretion
             Property(x => x.RA).IsRequired();
             Property(x => x.CPF).IsRequired();
             Property(x => x.Email).IsRequired();
-            Property(x => x.Telefone).IsRequired();
+            Property(x => x.Telefone).IsOptional();
         }
     }
 }

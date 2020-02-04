@@ -12,65 +12,47 @@ namespace AP.UI.Web.Controllers
 {
     public class AlunoController : Controller 
     {
-        private readonly DataContext dbCtx;
-        public AlunoController(DataContext dataContext)
+
+        private readonly IAlunoBusiness _alunoBusiness;
+
+        public AlunoController(IAlunoBusiness alunoBusiness)
         {
-            dbCtx = dataContext;
+            _alunoBusiness = alunoBusiness;
         }
-        //private readonly IAlunoBusiness _alunoBusiness;
 
-        //public AlunoController(IAlunoBusiness alunoBusiness)
-        //{
-        //    _alunoBusiness = alunoBusiness;
-        //}
-
+        [HttpGet]
         public IActionResult Index()
         {
-            var model = new Autor();
-            return View("Forms", model);
+            return View("Forms");
         }
-
         [HttpPost]
         public IActionResult Incluir(Aluno aluno)
         {
-            //var model = _alunoBusiness.Incluir(aluno);
-
-            try
-            {
-                var model = new Aluno
-                {
-                    Nome = aluno.Nome,
-                    Sobrenome = aluno.Sobrenome,
-                    Sexo = aluno.Sexo,
-                    RA = aluno.RA,
-                    CPF = aluno.CPF,
-                    Email = aluno.Email,
-                    Telefone = aluno.Telefone
-                };
-
-                dbCtx.Alunos.Add(model);
-                dbCtx.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("eroo ao salavar os dados", ex);
-            }
-
-            return View("Forms", aluno);
+            var model = _alunoBusiness.Incluir(aluno);
+            return View("Forms", model);
         }
-        //public IEnumerable Carregar()
-        //{
-        //    //return _alunoBusiness.ObterTodos();
-
-        //    var model = dbCtx.Set<Aluno>().AsEnumerable();
-        //    return View(model);
-        //}
-        [HttpGet] 
+        public IActionResult Consultar(int id)
+        {
+            var consulta = _alunoBusiness.Consultar(id);
+            return View("Alterar", consulta);
+        }
+        public void Alterar(Aluno alterar)
+        {
+            _alunoBusiness.Alterar(alterar);
+        }
         public IActionResult Carregar()
         {
-            var lista = dbCtx.Alunos.ToList();
-            return View("Lista",lista);
+            var carregar = _alunoBusiness.Listar();
+            return View("Lista", carregar);
+        }
+        public void Excluir(Aluno excluir)
+        {
+            _alunoBusiness.Excluir(excluir);
+        }
+        public IActionResult Detalheis(int id)
+        {
+            var detalheis = _alunoBusiness.Consultar(id);
+            return PartialView("Detalheis", detalheis);
         }
     }
 }

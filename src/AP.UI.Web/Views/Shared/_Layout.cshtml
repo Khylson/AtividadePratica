@@ -6,8 +6,11 @@
     <title>@ViewData["Title"] - Biblioteca Kutanga</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/datatables.css" />
+        <!-- bootstrasp css -->
+        <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/datatables.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -18,7 +21,25 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <h1 class="m-3 d-flex justify-content-center"> Kutanga Library Management </h1>
+        <h4 class="m-3 d-flex justify-content-center"> Portaria de Gerenciamento</h4>
+        <h1></h1>
+
+        <div class="navbar-collapse collapse" style="background-color: #F0F8FF ">
+            <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Aluno" asp-action="Carregar">Aluno</a></li>
+                <li><a asp-area="" asp-controller="Autor" asp-action="Carregar">Autor</a></li>
+                <li><a asp-area="" asp-controller="Editora" asp-action="Carregar">Editora</a></li>
+                <li><a asp-area="" asp-controller="Livro" asp-action="Carregar">Livro</a></li>
+                <li><a asp-area="" asp-controller="Emprestimo" asp-action="Carregar">Emprestímo</a></li>
+            </ul>
+            <partial name="_LoginPartial" />
+        </div>
+    </div>
+    <!--
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -32,14 +53,22 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="CarregarPage">Biblioteca Kutanga</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Aluno" asp-action="Carregar">Aluno</a></li>
+                    <li><a asp-area="" asp-controller="Autor" asp-action="Carregar">Autor</a></li>
+                    <li><a asp-area="" asp-controller="Editora" asp-action="Carregar">Editora</a></li>
+                    <li><a asp-area="" asp-controller="Livro" asp-action="Carregar">Livro</a></li>
+                    <li><a asp-area="" asp-controller="Emprestimo" asp-action="Carregar">Emprestímo</a></li>
+
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="CarregarPage">Biblioteca Kutanga</a></li>*@
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>*@
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
         </div>
-    </nav>
+        </nav>
+
+     -->
 
     <partial name="_CookieConsentPartial" />
 
@@ -52,13 +81,14 @@
     </div>
 
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <!-- js-->
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/bootstrap/dist/js/datatables.js"></script>
+        <script src="~/lib/bootstrap/dist/js/datatables.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous"

@@ -1,11 +1,19 @@
 
 CREATE TABLE [dbo].[EDITORA] (
-    [EDITORAID]  BIGINT         NOT NULL,
+    [EDITORAID]  INT            IDENTITY (1, 1) NOT NULL,
     [NOME]       NVARCHAR (50)  NOT NULL,
     [CEP]        NVARCHAR (50)  NOT NULL,
     [ESTADO]     NVARCHAR (15)  NOT NULL,
     [PAIS]       NVARCHAR (50)  NULL,
-    [LOGRADOURO] NVARCHAR (250) NULL,
+    [ENDERECO] NVARCHAR (250) NULL,
     PRIMARY KEY CLUSTERED ([EDITORAID] ASC)
 );
 
+INSERT INTO EDITORA ([NOME],[CEP],[ESTADO],[PAIS],[ENDERECO]) 
+VALUES ('Kutanga','05846-390','Luanda','Angola','Rua Santa Clara 16')
+
+INSERT INTO EDITORA ([NOME],[CEP],[ESTADO],[PAIS],[ENDERECO]) 
+VALUES ('CPB','05846-001','São Paulo','Brasil','Estrada de Itapecirica')
+
+INSERT INTO EDITORA ([NOME],[CEP],[ESTADO],[PAIS],[ENDERECO]) 
+VALUES ('Objetiva','05890-221','São Paulo','Brasil','Av. Paulista')

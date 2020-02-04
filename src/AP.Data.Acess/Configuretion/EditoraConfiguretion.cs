@@ -12,13 +12,13 @@ namespace AP.Data.Acess.Configuretion
         {
             ToTable("EDITORA");
 
-            HasKey(k => k.EditorId);
+            HasKey(k => k.EditoraId);
 
-            Property(x => x.Nome).IsOptional();
+            Property(x => x.Nome).IsRequired();
             Property(x => x.CEP).IsRequired();
             Property(x => x.Estado).IsRequired();
             Property(x => x.Pais).IsRequired();
-            Property(x => x.Logradour).IsRequired();
+            Property(x => x.Endereco).IsRequired();
         }
     }
 }

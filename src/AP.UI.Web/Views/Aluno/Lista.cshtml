@@ -3,48 +3,154 @@
     ViewData["Title"] = "Lista";
 }
 
-<h2>Lista</h2>
+<h5>Lista de Alunos</h5>
 
 <div class="container">
-    @Html.ActionLink("Novo Aluno", "Incluir", "Aluno", new { }, new { @class = "btn btn-sm btn-primary pull-right" })
-    <table class="table">
-        <thead class="thead-dark">
+    <a class="btn btn-primary pull-right" asp-controller="Aluno" asp-action="Index">Novo Aluno</a>
+    <table class="table table" id="minhaTabela">
+        <thead class="thead-dark" style="border-bottom-color: black">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
-                <th scope="col">RA</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Email</th>
-                <th scope="col">Telefone</th>
+                <th scope="col" width="2%">ID</th>
+                <th scope="col" width="8%">Nome</th>
+                <th scope="col" width="10%">Sobrenome</th>
+                <th scope="col" width="7%">RA</th>
+                <th scope="col" width="15%">CPF</th>
+                <th scope="col" width="7%">Sexo</th>
+                <th scope="col" width="30%">Email</th>
+                <th scope="col" width="20%">Telefone</th>
+                <th scope="row" width="50%"> Opções</th>
             </tr>
         </thead>
         <tbody>
-            @if (Model.Any())
+            @foreach (var item in Model)
             {
-                foreach (var item in Model)
-                {
-                    <tr style="color:white">
-                        <td>@item.AlunoId</td>
-                        <td>@item.Nome</td>
-                        <td>@item.Sobrenome</td>
-                        <td>@item.RA</td>
-                        <td>@item.Sexo</td>
-                        <td>@item.Email</td>
-                        <td>@item.Telefone</td>
-                    </tr>
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="4">
-                        <p>Sem Registros</p>
-                    </td>
+                <tr style="color:black">
+                    <td width="2%">@item.AlunoId</td>
+                    <td width="8%">@item.Nome</td>
+                    <td width="10%">@item.Sobrenome</td>
+                    <td width="7%">@item.RA</td>
+                    <td width="15%">@item.CPF</td>
+                    <td width="7%">@item.Sexo</td>
+                    <td width="30%">@item.Email</td>
+                    <td width="20%">@item.Telefone</td>
+                    <td> <button type="button" onclick="detalheis($(this))" data-id="@item.AlunoId" class="btn btn-sm btn-primary">Detalheis</button></td>
+                    <td><a class="btn btn-info" asp-controller="Aluno" asp-action="Consultar" asp-route-id="@item.AlunoId">Altera</a></td>
+                    <td> <button type="button" class="btn btn-danger btnExcluir" data-id="@item.AlunoId" data-toggle="modal" data-target="#modalDelete">Excluir</button></td>
                 </tr>
             }
-
         </tbody>
     </table>
 </div>
+
+
+<!-- modal edição -->
+<div class="modal fade modalDetalheis" style="z-index: 99999; display: none;" tabindex="-1" id="modalDetalheis" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header edit-av">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Detalheis do Aluno</h4>
+            </div>
+            <div class="modal-body">
+                <div id="myModalDetalheis"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btnFechar" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal excluir-->
+<div class="modal fade modalDelete" style="z-index: 99999; display: none;" tabindex="-1" id="modalDelete" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header excluir-av">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Remover</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Atenção não será possível restaurar após confirmação</h4>
+                <input type="hidden" name="_excluirId" id="_excluirId" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary js-arq-delete-cancel" data-dismiss="modal">Cancelar</button>
+
+                <button type="button" data-id="0" id="id" class="btn btn-danger btnConfirmarExcluir confirm" data-dismiss="modal">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function detalheis(registro) {
+            var _id = $(registro).data('id');
+            var options = { "backdrop": "static", keyboard: true };
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("Detalheis", "Aluno")',
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                data: {
+                    id: _id
+                },
+                success: function (data) {
+                    $('#myModalDetalheis').html(data);
+                    $('#modalDetalheis').modal(options);
+                    $('#modalDetalheis').modal('show');
+                },
+                error: function () {
+                }
+            });
+
+             $("#closbtn").click(function () {
+                $('#modalEditDesigando').modal('hide');
+            });
+        }
+    $(document).ready(function () {
+        $('#minhaTabela').DataTable({
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'pdfHtml5',
+                customize: function (doc) {
+                    doc.content.splice(1, 0, {
+                        margin: [0, 0, 0, 12],
+                        alignment: 'center',
+
+                    });
+                }
+            }]
+        });
+    });
+
+    $(".btnExcluir").off("click").on("click", function () {
+        $(".btnConfirmarExcluir").data("id", $(this).data("id"));
+    });
+    $(".btnConfirmarExcluir").off("click").on("click", function () {
+        excluirAluno(this);
+    });
+
+    var excluirAluno = function (element) {
+        var _id = $(element).data("id");
+        $.ajax({
+            type: "POST",
+            url: Router.action("Excluir", "Aluno"),
+            data: { id: _id },
+            async: false,
+            dataType: "html",
+            success: function (response) {
+                if (response) {
+                    $.Notification.notify('success', 'top center', 'Sucesso', 'Registro excluido com sucesso.');
+                }
+            },
+            error: function (xhr) {
+                $.Notification.notify('error', 'top center', 'Falha', "Não foi possível concluir a operação.");
+            }
+        });
+    }
+</script>

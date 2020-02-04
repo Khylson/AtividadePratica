@@ -1,0 +1,107 @@
+﻿@model IEnumerable<AP.Model.Models.Editora>
+@{
+    ViewData["Title"] = "Editora";
+}
+
+<p></p>
+<h2>Editora</h2>
+
+<div class="container">
+    @Html.ActionLink("Novo Aluno", "Index", "Editora", new { }, new { @class = "btn btn-sm btn-primary pull-right" })
+    <table class="table" id="minhaTabela">
+        <thead class="thead-dark">
+            <tr>
+                <th width="2%"  scope="col">ID</th>
+                <th width="10%" scope="col">Nome</th>
+                <th width="15%" scope="col">CEP</th>
+                <th width="20%" scope="col">Estado</th>
+                <th width="7%"  scope="col">País</th>
+                <th width="50%" scope="col">Endereço</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr style="color:black">
+                <td width="2%">@item.EditoraId</td>
+                <td width="10%">@item.Nome</td>
+                <td width="15%">@item.CEP</td>
+                <td width="20%">@item.Estado</td>
+                <td width="7%">@item.Pais</td>
+                <td width="50%">@item.Endereco</td>
+
+                <td><a class="btn btn-info" asp-controller="Editora" asp-action="Consultar" asp-route-id="@item.EditoraId">Altera</a></td>
+                <td> <button type="button" class="btn btn-danger btnExcluir" data-id="@item.EditoraId" data-toggle="modal" data-target="#modalDelete">Excluir</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- modal excluir-->
+<div class="modal fade modalDelete" style="z-index: 99999; display: none;" tabindex="-1" id="modalDelete" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header excluir-av">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Remover</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Atenção não será possível restaurar após confirmação</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary js-arq-delete-cancel" data-dismiss="modal">Cancelar</button>
+
+                <button type="button" data-id="0" id="excluir" class="btn btn-danger btnConfirmarExcluir confirm" data-dismiss="modal">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#minhaTabela').DataTable({
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'pdfHtml5',
+                customize: function (doc) {
+                    doc.content.splice(1, 0, {
+                        margin: [0, 0, 0, 12],
+                        alignment: 'center',
+
+                    });
+                }
+            }]
+        });
+    });
+
+    $(".btnExcluir").off("click").on("click", function () {
+        $(".btnConfirmarExcluir").data("id", $(this).data("id"));
+    });
+    $(".btnConfirmarExcluir").off("click").on("click", function () {
+            excluirAluno(this);
+    });
+
+    var excluirAluno = function (element) {
+        var _id = $(element).data("id");
+        $.ajax({
+            type: "POST",
+            url: Router.action("Excluir", "Aluno"),
+            data: { excluir: _id},
+            async: false,
+            dataType: "html",
+            success: function (response) {
+                if (response) {
+                    $.Notification.notify('success', 'top center', 'Sucesso', 'Registro excluido com sucesso.');
+                }
+            },
+            error: function (xhr) {
+                $.Notification.notify('error', 'top center', 'Falha', "Não foi possível concluir a operação.");
+            }
+        });
+    }
+</script>

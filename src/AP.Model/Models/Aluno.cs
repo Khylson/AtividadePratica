@@ -23,11 +23,11 @@ namespace AP.Model.Models
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Sexo: ")]
-        public char Sexo { get; set; }
+        public string Sexo { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("RA: ")]
-        public int RA { get; set; }
+        public string RA { get; set; }
 
         [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "Digite um CPF válido")]
         [Required]
@@ -39,6 +39,6 @@ namespace AP.Model.Models
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Telefone: "), DataType(DataType.PhoneNumber, ErrorMessage = "Digite um e-mail válido")]
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
     }
 }

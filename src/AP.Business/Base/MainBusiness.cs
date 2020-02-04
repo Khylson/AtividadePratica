@@ -1,4 +1,5 @@
-﻿using AP.Data.Acess.DataContext;
+﻿using AP.Business.Contract.Base;
+using AP.Data.Acess.DataContext;
 using Data.Acess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,12 +10,12 @@ using System.Text;
 
 namespace AP.Business.Base
 {
-    public class MainBusiness<TModel> : IRepository<TModel> where TModel : class
+    public class MainBusiness<TModel> : IBase<TModel> where TModel : class
     {
         
-        protected readonly DataContext dbCtx;
+        protected readonly Context dbCtx;
 
-        public MainBusiness(DataContext dbContext)
+        public MainBusiness(Context dbContext)
         {
             dbCtx = dbContext;
         }
@@ -26,14 +27,14 @@ namespace AP.Business.Base
             return dbCtx.Set<TModel>().AsEnumerable();
         }
 
-        public TModel Adicionar(TModel entity)
+        public TModel Incluir(TModel entity)
         {
             dbCtx.Set<TModel>().Add(entity);
             dbCtx.SaveChanges();
             return entity;
         }
 
-        public TModel Consultar(long id)
+        public TModel Consultar(int id)
         {
             return dbCtx.Set<TModel>().Find(id);
         }

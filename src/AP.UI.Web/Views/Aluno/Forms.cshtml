@@ -1,72 +1,93 @@
-﻿
+﻿@model AP.Model.Models.Aluno
 @{
-    ViewData["Title"] = "Cdastro de Aluno";
+    ViewData["Title"] = "Cadastro de Aluno";
 }
 
 <p></p>
 <h2>Cdastro de Aluno</h2>
-
-<form id="formCadastro" method="post">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group-prepend">
-                <label for="Nome">Nome:</label>
-                <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" maxlength="20">
+<div class="container">
+    <form id="formCadastroAluno" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Nome">Nome</label>
+                <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: Helda" maxlength="20">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Sobrenome">Sobrenome</label>
+                <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Ex.: Muxito" maxlength="20">
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Sobrenome">Sobrenome:</label>
-                <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Ex.: da Silva" maxlength="20">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="RA">RA</label>
+                <input required="required" type="text" class="form-control" id="RA" name="RA" placeholder="Ex.: 0098887" maxlength="8">
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="RA">RA:</label>
-                <input required="required" type="number" class="form-control" id="RA" name="RA" placeholder="Ex.: 00457" maxlength="5">
+            <div class="form-group col-md-4">
+                <label for="CPF">CPF</label>
+                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 010.001.011-01" maxlength="11">
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="CPF">CPF:</label>
-                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 001.010.111-00" maxlength="14">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="Sexo">Sexo:</label>
-                <select required="required" id="Sexo" class="form-control" name="Sexo">
-                    <option value="">- Selecione -</option>
+            <div class="form-group col-md-4">
+                <label for="Sexo">Sexo</label>
+                <select required="required" class="form-control" id="Sexo" name="Sexo">
+                    <option selected>... Selecione ...</option>
                     <option value="M">Masculino</option>
-                    <option value="F">Femenino</option>
+                    <option value="M">Femenino</option>
                 </select>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Email">E-mail:</label>
-                <input required="required" type="text" class="form-control" id="Email" name="Email" placeholder="Ex.: email@email.com" maxlength="2079">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Email">Email</label>
+                <input required="required" type="email" class="form-control" id="Email" name="Email" placeholder="Ex.: helda@gmail.com" maxlength="50">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Telefone">Telefone</label>
+                <input type="tel" class="form-control" id="Telefone" name="Telefone" placeholder="Ex.: (11) 2290-2010 ">
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Telefone">Telefone:</label>
-                <input required="required" type="tel" class="form-control" id="Telefone" name="Telefone" placeholder="Ex.: (11) 2020-3030" maxlength="15">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pull-right">
+                    <a class="btn btn-info" asp-controller="Aluno" asp-action="Carregar">Voltar</a>
+                    <button type="submit" class="btn btn-sm btn-success">Salvar</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+</div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="pull-right">
-                <button type="submit" class="btn btn-sm btn-success">Salvar</button>
-                @Html.ActionLink("Voltar", "Index", "Cliente", new { }, new { @class = "btn btn-sm btn-danger" })
-            </div>
-        </div>
-    </div>
-</form>
+
+<script type="text/javascript">
+
+    function btnIncluir() {
+        $('#formCadastroAluno').submit(function (e) {
+           e.preventDefault();
+
+            $.ajax({
+                url: '@Url.Action("Incluir", "Aluno")', 
+                method: "POST",
+                data: {
+                    "Nome": $(this).find("#Nome").val(),
+                    "Sobrenome": $(this).find("#Sobrenome").val(),
+                    "CPF": $(this).find("#CPF").val(),
+                    "Sexo": $(this).find("#Sexo").val(),
+                    "Email": $(this).find("#Email").val(),
+                    "RA": $(this).find("#RA").val(),
+                    "Telefone": $(this).find("#Telefone").val(),
+                },
+                error:
+                    function (r) {
+                        if (r)
+                            $.Notification.notify('error', 'top center', 'Falha', 'Ocoreru um erro.');
+                    },
+                success:
+                    function (r) {
+                        $.Notification.notify('success', 'top center', 'Sucesso', 'Salvo com sucesso.');
+                    }
+            });
+       })
+    }
+</script>
+
+
 

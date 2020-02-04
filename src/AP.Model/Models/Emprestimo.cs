@@ -16,11 +16,11 @@ namespace AP.Model.Models
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Data Emprestimo: "), DataType(DataType.Date)]
-        public DateTime DataEmprestimo { get; set; }
+        public DateTime? DataEmprestimo { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Data Devolução: "), DataType(DataType.Date)]
-        public DateTime DataDevolucao { get; set; }
+        public DateTime? DataDevolucao { get; set; }
 
         [DisplayName("Valor da Multa: ")]
         public decimal ValorMulta { get; set; }

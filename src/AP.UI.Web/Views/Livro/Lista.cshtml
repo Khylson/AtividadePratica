@@ -1,0 +1,117 @@
+﻿@model IEnumerable<AP.Model.Models.Livro>
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<div class="container">
+    @Html.ActionLink("Novo Livro", "Listar", "Livro", new { }, new { @class = "btn btn-sm btn-primary pull-right" })
+    <table class="table" id="minhaTabela">
+        <thead class="thead-dark">
+            <tr>
+                <th width="2%"  scope="col">Id</th>
+                <th width="20%" scope="col">Titúlo</th>
+                <th width="20%" scope="col">ISBN</th>
+                <th width="5%"  scope="col">QT.</th>
+                <th width="5%"  scope="col">Status</th>
+                <th width="15%" scope="col">Editora</th>
+                <th width="20%" scope="col">Autor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr style="color:white">
+                        <td width="2%">@item.LivroId</td>
+                        <td width="20%">@item.Titulo</td>
+                        <td width="20%">@item.ISBN</td>
+                        <td width="5%">@item.Quantidade</td>
+                        <td width="5%">@item.Status</td>
+                        <td width="15%">@item.EditoraId</td>
+                        <td width="20%">@item.AutorId</td>
+                        <td><a class="btn btn-info" asp-controller="Livro" asp-action="Consultar" asp-route-id="@item.LivroId">Altera</a></td>
+                        <td> <button type="button" class="btn btn-danger btnExcluir" data-id="@item.LivroId" data-toggle="modal" data-target="#modalDelete">Excluir</button></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">
+                        <p>Sem Registros</p>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<!-- modal excluir-->
+<div class="modal fade modalDelete" style="z-index: 99999; display: none;" tabindex="-1" id="modalDelete" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header excluir-av">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Remover</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Atenção não será possível restaurar após confirmação</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary js-arq-delete-cancel" data-dismiss="modal">Cancelar</button>
+
+                <button type="button" data-id="0" id="excluir" class="btn btn-danger btnConfirmarExcluir confirm" data-dismiss="modal">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#minhaTabela').DataTable({
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'pdfHtml5',
+                customize: function (doc) {
+                    doc.content.splice(1, 0, {
+                        margin: [0, 0, 0, 12],
+                        alignment: 'center',
+
+                    });
+                }
+            }]
+        });
+    });
+
+    $(".btnExcluir").off("click").on("click", function () {
+        $(".btnConfirmarExcluir").data("id", $(this).data("id"));
+    });
+    $(".btnConfirmarExcluir").off("click").on("click", function () {
+        excluirAluno(this);
+    });
+
+    var excluirAluno = function (element) {
+        var _id = $(element).data("id");
+        $.ajax({
+            type: "POST",
+            url: Router.action("Excluir", "Aluno"),
+            data: { excluir: _id },
+            async: false,
+            dataType: "html",
+            success: function (response) {
+                if (response) {
+                    $.Notification.notify('success', 'top center', 'Sucesso', 'Registro excluido com sucesso.');
+                }
+            },
+            error: function (xhr) {
+                $.Notification.notify('error', 'top center', 'Falha', "Não foi possível concluir a operação.");
+            }
+        });
+    }
+</script>

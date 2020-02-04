@@ -1,30 +1,36 @@
 ﻿using AP.Business.Base;
+using AP.Business.Contract.Base;
 using AP.Business.Contract.Interfaces;
 using AP.Data.Acess.DataContext;
 using AP.Model.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace AP.Business.Business
 {
     
-    public class AlunoBusiness : MainBusiness <Aluno>, IAlunoBusiness
+    public class AlunoBusiness : IBase<Aluno>, IAlunoBusiness
     {
-        public AlunoBusiness(DataContext dbContext) : base(dbContext)
+        private readonly Context dbCtx;
+
+        public AlunoBusiness(Context dbContext) 
         {
+            dbCtx = dbContext;
         }
 
-        public IEnumerable<Aluno> ObterTodos()
-        {
-            return Listar();
-        }
         public Aluno Incluir(Aluno aluno)
         {
-            try
+            var model = dbCtx.Alunos.Where(x => x.AlunoId == aluno.AlunoId).FirstOrDefault(f => f.AlunoId.Equals(aluno.AlunoId));
+
+            if (model == null)
             {
-                var model = new Aluno
-                {
+                 model = new Aluno
+                 {
+                    AlunoId = aluno.AlunoId,
                     Nome = aluno.Nome,
                     Sobrenome = aluno.Sobrenome,
                     Sexo = aluno.Sexo,
@@ -36,16 +42,43 @@ namespace AP.Business.Business
 
                 dbCtx.Alunos.Add(model);
                 dbCtx.SaveChanges();
- 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("eroo ao salavar os dados", ex);
-            }
 
-            return Incluir(aluno);
+            }
+            return aluno;
         }
 
-       
+        public void Alterar(Aluno entity)
+        {
+            var altera = dbCtx.Alunos.Find(entity.AlunoId);
+
+            dbCtx.Alunos.Update(altera);
+            dbCtx.SaveChanges();
+        }
+
+        public void Excluir(Aluno entity)
+        {
+            var delete = dbCtx.Alunos.Find(keyValues: entity.AlunoId);
+
+            dbCtx.Alunos.Remove(delete);
+            dbCtx.SaveChanges();
+        }
+
+        public IEnumerable<Aluno> Listar()
+        {
+            var lista = dbCtx.Alunos.ToList();
+            return lista;
+        }
+        public Aluno Consultar(int id)
+        {
+            var consulta = dbCtx.Alunos.Find(id);
+            return consulta;
+        }
+        #region metodos não implementados 
+        public IEnumerable<Aluno> Pesquisar(Expression<Func<Aluno, bool>> elemeto)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion não implementado 
+
     }
 }

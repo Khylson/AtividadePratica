@@ -1,12 +1,3 @@
-C:\Devolper\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.deps.json
-C:\Devolper\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.dll
-C:\Devolper\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.pdb
-C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.csprojAssemblyReference.cache
-C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.csproj.CoreCompileInputs.cache
-C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.AssemblyInfoInputs.cache
-C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.AssemblyInfo.cs
-C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.dll
-C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.pdb
 C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.deps.json
 C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.dll
 C:\Developer\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.pdb
@@ -16,3 +7,12 @@ C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.Asse
 C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.AssemblyInfo.cs
 C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.dll
 C:\Developer\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.pdb
+C:\Devolper\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.deps.json
+C:\Devolper\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.dll
+C:\Devolper\AtividadePratica\src\AP.Model\bin\Debug\netcoreapp2.1\AP.Model.pdb
+C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.csproj.CoreCompileInputs.cache
+C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.AssemblyInfoInputs.cache
+C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.AssemblyInfo.cs
+C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.dll
+C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.pdb
+C:\Devolper\AtividadePratica\src\AP.Model\obj\Debug\netcoreapp2.1\AP.Model.csprojAssemblyReference.cache

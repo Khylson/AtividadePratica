@@ -1,0 +1,117 @@
+﻿@model AP.Model.Models.Aluno
+@{
+    ViewData["Title"] = "Cdastro de Aluno";
+}
+
+<p></p>
+<h2>Altera de Aluno</h2>
+
+<form id="formCadastroAlterar" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group-prepend">
+                <label for="Nome">Nome:</label>
+                <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="" maxlength="20">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Sobrenome">Sobrenome:</label>
+                <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="" maxlength="20">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="RA">RA:</label>
+                <input required="required" type="number" class="form-control" id="RA" name="RA" placeholder="" maxlength="5">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="CPF">CPF:</label>
+                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="" maxlength="14">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Sexo">Sexo:</label>
+                <select required="required" id="Sexo" class="form-control" name="Sexo">
+                    <option value="0">- Selecione -</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Email">E-mail:</label>
+                <input required="required" type="text" class="form-control" id="Email" name="Email" placeholder="" maxlength="2079">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Telefone">Telefone:</label>
+                <input required="required" type="tel" class="form-control" id="Telefone" name="Telefone" placeholder="" maxlength="15">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="col-lg-12">
+            <div class="pull-right">
+                <button type="button" class="btn btn-secondary js-arq-delete-cancel" data-dismiss="modal">Cancelar</button>
+                <button type="submit" onclick="btnAlterar($(this))" class="btn btn-sm btn-success">Salvar</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    function btnAlterar() {
+        if (obj) {
+            $('#formCadastroAlterar #Nome').val(obj.Nome);
+            $('#formCadastroAlterar #Sobrenome').val(obj.Sobrenome);
+            $('#formCadastroAlterar #CPF').val(obj.CPF);
+            $('#formCadastroAlterar #Sexo').val(obj.Sexo);
+            $('#formCadastroAlterar #Email').val(obj.Email);
+            $('#formCadastroAlterar #RA').val(obj.RA);
+            $('#formCadastroAlterar #Telefone').val(obj.Telefone);
+        }
+
+        $('#formCadastroAlterar').submit(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '@Url.Action("Alterar", "Aluno")', 
+                method: "POST",
+                data: {
+                    "Nome": $(this).find("#Nome").val(),
+                    "Sobrenome": $(this).find("#Sobrenome").val(),
+                    "CPF": $(this).find("#CPF").val(),
+                    "Sexo": $(this).find("#Sexo").val(),
+                    "Email": $(this).find("#Email").val(),
+                    "RA": $(this).find("#RA").val(),
+                    "Telefone": $(this).find("#Telefone").val(),
+                },
+                error:
+                    function (r) {
+                        if (r)
+                            $.Notification.notify('error', 'top center', 'Falha', 'Ocoreru um erro.');
+                    },
+                success:
+                    function (r) {
+                        $.Notification.notify('success', 'top center', 'Sucesso', 'Alterado com sucesso.');
+                    }
+            });
+        })
+
+    } 
+</script>
+
+
+

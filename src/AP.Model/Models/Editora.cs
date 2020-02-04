@@ -7,11 +7,11 @@ using System.Text;
 
 namespace AP.Model.Models
 {
-    [Table("EDITOR")]
+    [Table("EDITORA")]
     public class Editora
     {
         [Key]
-        public int EditorId { get; set; }
+        public int EditoraId { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Nome: ")]
@@ -30,7 +30,7 @@ namespace AP.Model.Models
         public string Pais { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
-        [DisplayName("Logradour: ")]
-        public string Logradour { get; set; }
+        [DisplayName("Endereco: ")]
+        public string Endereco { get; set; }
     }
 }

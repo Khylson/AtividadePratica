@@ -5,27 +5,43 @@
 
 <p></p>
 <!-- Image and text -->
+@*<div id="naveBar">
+        <ul class="nav nav-tabs " style="background-color: azure">
+            <li class="nav-item">
+                <a asp-area="" class="btn btn-primary" asp-controller="Aluno" asp-action="Carregar">Aluno</a>
+            </li>
+            <li class="nav-item">
+                <a asp-area="" class="btn btn-primary" asp-controller="Autor" asp-action="Index">Autor</a>
+            </li>
+            <li class="nav-item">
+                <a asp-area="" class="btn btn-primary" asp-controller="Editora" asp-action="Carregar">Editora</a>
+            </li>
+            <li class="nav-item">
+                <a asp-area="" class="btn btn-primary" asp-controller="Livro" asp-action="Index">Livro</a>
+            </li>
+            <li class="nav-item">
+                <a asp-area="" class="btn btn-primary" asp-controller="" asp-action="">Emprestímo</a>
+            </li>
+        </ul>
 
-<div id="naveBar">
-    <ul class="nav nav-tabs " style="background-color: azure">
-        <li class="nav-item">
-            <a asp-area="" class="btn btn-primary" asp-controller="Aluno" asp-action="Carregar">Aluno</a>
-        </li>
-        <li class="nav-item">
-            <a asp-area="" class="btn btn-primary" asp-controller="Index" asp-action="">Autor</a>
-        </li>
-        <li class="nav-item">
-            <a asp-area="" class="btn btn-primary" asp-controller="" asp-action="">Editor</a>
-        </li>
-        <li class="nav-item">
-            <a asp-area="" class="btn btn-primary" asp-controller="" asp-action="">Livro</a>
-        </li>
-        <li class="nav-item">
-            <a asp-area="" class="btn btn-primary" asp-controller="" asp-action="">Emprestímo</a>
-        </li>
-    </ul>
+    </div>*@
 
+
+<div class="container">
+    <h1 class="m-3 d-flex justify-content-center"> Kutanga Library Management </h1>
+    <h4 class="m-3 d-flex justify-content-center"> Portaria de Gerenciamento</h4>
+    <h1></h1>
+
+    <div class="navbar-collapse collapse" style="background-color: #F0F8FF ">
+        <ul class="nav navbar-nav">
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="" asp-controller="Aluno" asp-action="Carregar">Aluno</a></li>
+            <li><a asp-area="" asp-controller="Autor" asp-action="Carregar">Autor</a></li>
+            <li><a asp-area="" asp-controller="Editora" asp-action="Carregar">Editora</a></li>
+            <li><a asp-area="" asp-controller="Livro" asp-action="Carregar">Livro</a></li>
+            <li><a asp-area="" asp-controller="Emprestimo" asp-action="Carregar">Emprestímo</a></li>
+        </ul>
+        <partial name="_LoginPartial" />
+    </div>
 </div>
-
-
 
